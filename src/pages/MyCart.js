@@ -6,12 +6,16 @@ import Swal from "sweetalert2";
 import "../App.css";
 
 export default function MyCart() {
+  // Get the orderId from the URL parameters
   const { orderId } = useParams();
+
+  // State variables to manage the cart, total amount, removed products, and navigation
   const [cart, setCart] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const [removedProducts, setRemovedProducts] = useState([]);
   const navigate = useNavigate();
 
+  // Function to fetch cart data from the server
   const fetchCartData = async () => {
     try {
       const response = await fetch(
@@ -74,10 +78,12 @@ export default function MyCart() {
     }
   };
 
+  // Fetch cart data on component mount
   useEffect(() => {
     fetchCartData();
   }, []);
 
+  // Function to start a new order
   const handleStartNewOrder = async () => {
     try {
       const response = await fetch(
@@ -109,6 +115,7 @@ export default function MyCart() {
     }
   };
 
+  // Function to update the quantity of a cart item
   const updateCartItemQuantity = async (productId, newQuantity) => {
     try {
       if (newQuantity <= 0) {
@@ -153,6 +160,7 @@ export default function MyCart() {
     }
   };
 
+  // Function to handle the removal of a product from the cart
   const handleRemoveProduct = async (productId) => {
     try {
       const response = await fetch(
@@ -192,6 +200,7 @@ export default function MyCart() {
     }
   };
 
+  // Function to handle the checkout process
   const handleCheckout = async () => {
     try {
       // Make an API call to trigger the checkout process

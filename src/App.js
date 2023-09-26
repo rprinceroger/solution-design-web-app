@@ -17,21 +17,21 @@ import MyCart from "./pages/MyCart";
 import Error from "./pages/Error";
 import AdminOrders from "./pages/AdminOrders";
 
-
-
-
 import "./App.css";
 
 function App() {
+  // State to manage user data
   const [user, setUser] = useState({
     id: null,
     isAdmin: null,
   });
 
+  // Function to clear user data from localStorage
   const unsetUser = () => {
     localStorage.clear();
   };
 
+  // Effect to fetch user data from the API on component mount
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}`, {
       method: "POST",

@@ -1,3 +1,4 @@
+/* Reset default styles for all elements */
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +6,7 @@
   font-family: "TrajanPro";
 }
 
+/* Styling for the body of the webpage */
 body {
   background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(https://img.freepik.com/premium-photo/close-up-collection-black-gray-white-t-shirts-hanging-wooden-clothes-hanger_43448-153.jpg);
   background-size: cover;
@@ -12,26 +14,25 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-x: hidden;
-
 }
 
-
+/* Styling for a custom navbar */
 .navbar-custom {
   background-color: gray;
 }
 
+/* Styling for a custom footer */
 .footer-custom {
   background-color: gray;
 }
 
-
+/* Hover effect for navigation links inside the custom navbar */
 .navbar-custom .nav-link:hover {
-
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: box-shadow 0.3s ease-in-out;
 }
 
-
+/* Define custom font 'TrajanPro-Regular' */
 @font-face {
   font-family: 'TrajanPro-Regular';
   src: url('./fonts/TrajanPro-Regular.ttf') format('truetype');
@@ -39,6 +40,7 @@ body {
   font-style: normal;
 }
 
+/* Define custom font 'TrajanPro-Bold' */
 @font-face {
   font-family: 'TrajanPro-Bold';
   src: url('./fonts/TrajanPro-Bold.ttf') format('truetype');
@@ -46,7 +48,7 @@ body {
   font-style: normal;
 }
 
+/* Hover effect for elements with class 'productCard' */
 .productCard:hover {
-
   box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
 }

@@ -8,13 +8,16 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Login() {
+  // Access user context
   const { user, setUser } = useContext(UserContext);
 
+  // State variables for email, password, form activation, and password visibility
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isActive, setIsActive] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
 
+  // Function to authenticate user login
   function authenticate(e) {
     e.preventDefault();
 
@@ -39,12 +42,14 @@ export default function Login() {
               access: localStorage.getItem("token"),
             });
 
+            // Display success message
             Swal.fire({
               title: "Welcome!",
               icon: "success",
-              text: "You've successfully login!",
+              text: "You've successfully logged in!",
             });
           } else {
+            // Display error message for login failure
             Swal.fire({
               title: "Log in failed",
               icon: "error",
@@ -54,6 +59,7 @@ export default function Login() {
         })
         .catch((error) => {
           console.error("Fetch error:", error);
+          // Display server error message
           Swal.fire({
             title: "Server error",
             icon: "error",
@@ -62,6 +68,7 @@ export default function Login() {
         });
     } catch (error) {
       console.error("JSON parse error:", error);
+      // Display JSON parse error message
       Swal.fire({
         title: "JSON parse error",
         icon: "error",
@@ -69,10 +76,12 @@ export default function Login() {
       });
     }
 
+    // Clear email and password fields
     setEmail("");
     setPassword("");
   }
 
+  // Function to retrieve user details
   const retrieveUserDetails = (token) => {
     fetch(`${process.env.REACT_APP_API_URL}/users/profile`, {
       method: "POST",
@@ -90,6 +99,7 @@ export default function Login() {
       });
   };
 
+  // Effect to enable or disable the form submit button based on email and password inputs
   useEffect(() => {
     if (email !== "" && password !== "") {
       setIsActive(true);
@@ -98,13 +108,14 @@ export default function Login() {
     }
   }, [email, password]);
 
+  // Redirect to the shopping cart if the user is already logged in
   return user.id !== null ? (
     <Navigate to="/myCart" />
   ) : (
     <div className="d-flex flex-column align-items-center justify-content-center">
       <Form onSubmit={(e) => authenticate(e)}>
         <h1 className="mt-5 text-center bannerH1">Login</h1>
-        <p className="my-3 text-center">Use your Solution Design account to login.</p>
+        <p className="my-3 text-center">Use your Solution Design account to log in.</p>
         <Form.Group controlId="userEmail">
           <Form.Label>Email Address</Form.Label>
           <Form.Control
