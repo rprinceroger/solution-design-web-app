@@ -38,6 +38,6 @@ ProductCard.propTypes = {
     description: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     quantity: PropTypes.number.isRequired,
-    imageUrl: PropTypes.string.isRequired, // Add imageUrl to PropTypes
+    imageUrl: PropTypes.string.isRequired, 
   }),
 };

@@ -63,7 +63,7 @@ export default function Products() {
       ) : (
         // Render product cards and search bar for non-admin users
         <>
-          <h1 className="mt-5 text-center bannerH1">Our Catalogue</h1>
+          <h1 className="mt-5 text-center bannerH1">Product Page</h1>
           <div className="d-flex flex-row justify-content-center">
             <Row>
               <Col md={8}>

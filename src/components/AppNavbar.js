@@ -42,7 +42,7 @@ export default function AppNavbar() {
                   <Nav.Link as={Link} to="/profile">
                     Profile
                   </Nav.Link>
-                  {user.isAdmin === false && ( // Only show for non-admin users
+                  {user.isAdmin === false && ( 
                     <Nav.Link as={NavLink} to="/myCart" exact>
                       My Cart
                     </Nav.Link>

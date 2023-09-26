@@ -95,7 +95,7 @@ export default function Login() {
   }, [email, password]);
 
   return user.id !== null ? (
-    <Navigate to="/products" />
+    <Navigate to="/myCart" />
   ) : (
     <div className="d-flex flex-column align-items-center justify-content-center">
       <Form onSubmit={(e) => authenticate(e)}>

@@ -86,7 +86,7 @@ export default function AdminOrders() {
   };
 
   return (
-    <Container className="my-5">
+    <Container className="my-5 p-5">
       <h1 className="text-center my-3 bannerH1">View User Orders</h1>
       <Table striped bordered hover>
         <thead>
