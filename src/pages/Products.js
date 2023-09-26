@@ -1,11 +1,10 @@
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 import UserContext from "../UserContext";
 import AdminView from "../components/AdminView";
 import ProductCard from "../components/ProductCard";
-
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "../App.css";
 
 export default function Products() {
@@ -13,18 +12,16 @@ export default function Products() {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Fix: Issue where admin only sees active products upon page refresh
+
   useEffect(() => {
-    // Check if the user's role is available in local storage
     const storedUserRole = localStorage.getItem("userRole");
 
     if (storedUserRole) {
-      // If available, set the user role from local storage
       user.setRole(storedUserRole);
     }
 
     fetchData();
-  }, [user]); // Re-fetch data whenever the user role changes
+  }, [user]);
 
   const fetchData = () => {
     const url = user.isAdmin
@@ -57,13 +54,12 @@ export default function Products() {
   };
 
   return (
-    <Container className="my-5">
-      {user.isAdmin ? ( // Check if the user is an admin
+    <Container className="my-5 p-5">
+      {user.isAdmin ? (
         <AdminView productsData={products} fetchData={fetchData} />
       ) : (
-        // Render product cards and search bar for non-admin users
         <>
-          <h1 className="mt-5 text-center bannerH1">Product Page</h1>
+          <h1 className="mt-5 text-center bannerH1">Products</h1>
           <div className="d-flex flex-row justify-content-center">
             <Row>
               <Col md={8}>

@@ -2,8 +2,9 @@ import React, { useState, useEffect, useContext } from "react";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { useParams, useNavigate } from "react-router-dom";
+
 import UserContext from "../UserContext";
-import "../App.css"; // Import your custom CSS file
+import "../App.css";
 
 export default function ProductView() {
   const { productId } = useParams();
@@ -16,7 +17,7 @@ export default function ProductView() {
     description: "",
     price: 0,
     quantity: 0,
-    imageUrl: "", // Property for external image url
+    imageUrl: "",
   });
 
   const [quantity, setQuantity] = useState(1);
@@ -31,7 +32,7 @@ export default function ProductView() {
           description: data.description,
           price: data.price,
           quantity: data.quantity,
-          imageUrl: data.imageUrl, // Update the imageUrl property
+          imageUrl: data.imageUrl, 
         });
       })
       .catch((error) => {
@@ -68,12 +69,11 @@ export default function ProductView() {
     }
 
     const cartItem = {
-      productId: product._id, // Ensure this is the correct product ID
-      quantity: parseInt(quantity), // Parse quantity as an integer
+      productId: product._id,
+      quantity: parseInt(quantity),
     };
 
     try {
-      // Check if the user has a pending cart
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/orders/myCart`,
         {
@@ -84,7 +84,6 @@ export default function ProductView() {
       );
 
       if (response.ok) {
-        // User has a pending cart, proceed with adding the item
         fetch(`${process.env.REACT_APP_API_URL}/orders/addToCart`, {
           method: "POST",
           headers: {
@@ -102,7 +101,6 @@ export default function ProductView() {
                 text: "The item has been added to your cart.",
               });
 
-              // Redirect to the /products page after a successful addition to the cart
               navigate("/products");
             } else {
               Swal.fire({
@@ -154,7 +152,7 @@ export default function ProductView() {
                 {product.name}
               </Card.Title>
               <img
-                src={product.imageUrl} // Use the imageUrl property as the image source
+                src={product.imageUrl}
                 alt={product.name}
                 className="productViewImage"
               />
@@ -176,7 +174,7 @@ export default function ProductView() {
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                   min="1"
-                  max={product.quantity} // Set the maximum quantity based on product availability
+                  max={product.quantity}
                   className="custom-quantity-input"
                 />
                 <Button

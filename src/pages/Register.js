@@ -126,7 +126,7 @@ export default function Register() {
       <Row className="justify-content-center">
         <Col className="md-6 p-5">
           <Form onSubmit={(e) => registerUser(e)}>
-            <h1 className="mt-5 text-center bannerH1">Register Here!</h1>
+            <h1 className="mt-5 text-center bannerH1">Register</h1>
             <p className="text-center my-3">
               Already registered? <a href="/login">Log in here!</a>
             </p>

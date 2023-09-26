@@ -1,6 +1,8 @@
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import "../App.css";
+
 
 export default function ProductCard({ productProp }) {
   const { _id, name, price, imageUrl } = productProp;

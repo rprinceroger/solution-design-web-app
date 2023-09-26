@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Routes, Navigate } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 import AppNavbar from "./components/AppNavbar";
 import { UserProvider } from "./UserContext";
-
 import Products from "./pages/Products";
 import ProductView from "./pages/ProductView";
 import Home from "./pages/Home";
@@ -17,9 +17,9 @@ import MyCart from "./pages/MyCart";
 import Error from "./pages/Error";
 import AdminOrders from "./pages/AdminOrders";
 
-import { Container } from "react-bootstrap";
 
-// Stylesheet
+
+
 import "./App.css";
 
 function App() {

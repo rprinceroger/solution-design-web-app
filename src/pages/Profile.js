@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Row, Col, Card, Table, ListGroup } from "react-bootstrap";
 import UserContext from "../UserContext";
 import { Navigate } from "react-router-dom";
+
 import UpdateProfileModal from "../components/UpdateProfile";
 import "../App.css";
 
@@ -12,7 +13,7 @@ export default function Profile() {
 
   useEffect(() => {
     fetchProfileData();
-    fetchUserOrders(); // Fetch user's orders
+    fetchUserOrders();
   }, []);
 
   const fetchProfileData = () => {
@@ -49,12 +50,9 @@ export default function Profile() {
         .then((data) => {
           console.log("User orders data:", data);
 
-          // Sort orders by purchasedOn field in descending order (most recent first)
           data.sort(
             (a, b) => new Date(b.purchasedOn) - new Date(a.purchasedOn)
           );
-
-          // Filter orders based on status
           const orderHistory = data.filter(
             (order) => order.status !== "pending" && order.status !== "packing"
           );
@@ -65,7 +63,6 @@ export default function Profile() {
             (order) => order.status === "packing"
           );
 
-          // Combine all orders for display
           const allOrders = [
             ...pendingOrders,
             ...packingOrders,
@@ -93,7 +90,7 @@ export default function Profile() {
       case "delivered":
         return "#3b3923";
       default:
-        return "black"; // Default color if status doesn't match
+        return "black";
     }
   }
 
@@ -114,7 +111,7 @@ export default function Profile() {
             <ListGroup.Item action variant="secondary">
               Mobile No: {details.mobileNo}
             </ListGroup.Item>
-            {details.address && ( // Check if address exists
+            {details.address && (
               <ListGroup.Item action variant="secondary">
                 Address: {details.address}
               </ListGroup.Item>
@@ -156,7 +153,7 @@ export default function Profile() {
                             <tr key={product.productId}>
                               <td>{product.productName}</td>
                               <td>Quantity: {product.quantity}</td>
-                              {/* Remove quantity input and delete button */}
+
                             </tr>
                           ))}
                         </tbody>

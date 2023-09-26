@@ -30,12 +30,12 @@ https://gitlab.com/prince.robielos/solution-design
 
 ### [Click here to visit my React Web Application!](https://solution-design-web-app.vercel.app/)
 
-> Instructions to get started:
+> Here's the test account to get started:
 
 **Admin**
 - Email:
 ```
-casper@mail.com
+admin@mail.com
 ```
 - Password:
 ```
@@ -47,7 +47,7 @@ casper@mail.com
 **User**
 - Email:
 ```
-gin@mail.com
+user@mail.com
 ```
 - Password:
 ```
@@ -61,16 +61,16 @@ gin@mail.com
 
 **Session 66-67**
 - [x] Admin Dashboard Page
-	- Create Product
-	- Retrieve all products
-	- Update Products Information
-	- Deactivate/reactivate product
+	- [x] Create Product
+	- [x] Retrieve all products
+	- [x] Update Products Information
+	- [x] Deactivate/reactivate product
 
 **Session 68**
 - [x] User Products Catalog Page
-	- View all active product
-	- Retrive single product
+	- [x] View all active product
+	- [x] Retrive single product
 
 **Session 69**
 - [x] Checkout Order
-	- Non-admin User checkout (Create Order)
+	- [x] Non-admin User checkout (Create Order)

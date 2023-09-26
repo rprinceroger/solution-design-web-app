@@ -13,12 +13,12 @@ export default function AdminOrders() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    // Fetch orders when the component mounts
+
     fetchOrders();
   }, []);
 
   const fetchOrders = () => {
-    // Replace this with your actual fetch logic
+
     fetch(`${process.env.REACT_APP_API_URL}/orders/all`, {
       method: "GET",
       headers: {
@@ -48,7 +48,7 @@ export default function AdminOrders() {
             (status) => status === currentStatus
           ) + 1;
 
-    // Ensure that the nextStatus is within bounds
+
     if (nextStatus < 0 || nextStatus >= Object.keys(statusClasses).length) {
       console.error("Invalid nextStatus:", nextStatus);
       return;
@@ -57,7 +57,7 @@ export default function AdminOrders() {
     const nextStatusKey = Object.keys(statusClasses)[nextStatus];
     console.log("Updating order status to:", nextStatusKey);
 
-    const token = localStorage.getItem("token"); // Get the user's token from localStorage
+    const token = localStorage.getItem("token");
 
     fetch(
       `${process.env.REACT_APP_API_URL}/orders/${orderId}/status`,

@@ -1,9 +1,10 @@
 import { useState, useContext } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Form, Button, Container, Col } from "react-bootstrap";
-import UserContext from "../UserContext";
 import Swal from "sweetalert2";
 import "../App.css";
+
+import UserContext from "../UserContext";
 
 export default function AddProduct() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export default function AddProduct() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
-  const [imageUrl, setImageUrl] = useState(""); // Add state for imageUrl
+  const [imageUrl, setImageUrl] = useState("");
 
   function createProduct(e) {
     e.preventDefault();
@@ -30,7 +31,7 @@ export default function AddProduct() {
         description: description,
         price: price,
         quantity: quantity,
-        imageUrl: imageUrl, // Include the imageUrl in the request
+        imageUrl: imageUrl,
       }),
     })
       .then((res) => res.json())
@@ -56,7 +57,7 @@ export default function AddProduct() {
     setDescription("");
     setPrice(0);
     setQuantity(0);
-    setImageUrl(""); // Clear imageUrl after submission
+    setImageUrl("");
   }
 
   return user.isAdmin === true ? (
