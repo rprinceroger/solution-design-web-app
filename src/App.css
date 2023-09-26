@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PTSans";
+}
+
+body {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(https://img.freepik.com/premium-photo/close-up-collection-black-gray-white-t-shirts-hanging-wooden-clothes-hanger_43448-153.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Change the background color to gray */
+.navbar-custom {
+  background-color: gray;
+}
+
+.footer-custom {
+  background-color: gray;
+}
+
+/* Add a glowing effect when hovering over Nav.Link items */
+.navbar-custom .nav-link:hover {
+  /* Customize the glow effect as per your preference */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
+}
