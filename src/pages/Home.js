@@ -7,7 +7,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 export default function Home() {
   const bannerData = {
     title: "Welcome!",
-    content: "We make your idea to a reality!",
+    content: "Let's make your design a reality.",
     destination: "/products",
     label: "Shop Now",
   };

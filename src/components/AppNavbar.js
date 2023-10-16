@@ -1,11 +1,18 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserContext from "../UserContext";
-
-import "../App.css";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+
+import "../App.css";
+import logo from "../images/logo.png";
+
+const logoStyles = {
+  width: '120px', // Set the width to your desired size
+  height: '25px', // Maintain aspect ratio
+  marginRight: '10px', // Adjust the margin to control alignment
+};
 
 export default function AppNavbar() {
   const { user } = useContext(UserContext);
@@ -13,7 +20,7 @@ export default function AppNavbar() {
     <Navbar className="navbar-custom" expand="lg">
       <Container fluid>
         <Navbar.Brand as={Link} to="/">
-          Solution Design
+          <img src={logo} alt="Logo" style={logoStyles} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
