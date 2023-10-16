@@ -9,6 +9,7 @@ import "../App.css";
 function Footer() {
   const instagramUrl = `https://www.instagram.com/prince.robie/`
   const gitHubUrl = `https://github.com/rprinceroger/`
+  const linkedInUrl = `https://www.linkedin.com/in/prince-robielos-5421ba230/`
   const currentYear = new Date().getFullYear();
   return (
     <footer style={{ position: "fixed", bottom: 0, width: "100%" }} className="footer-custom d-flex justify-content-center p-2">
@@ -23,7 +24,7 @@ function Footer() {
       <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
         <FontAwesomeIcon icon={faInstagram} style={{ margin: '0 5px' }} />
       </a> 
-      <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
+      <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
         <FontAwesomeIcon icon={faLinkedin} style={{ margin: '0 5px' }} />
       </a> 
     </footer>
